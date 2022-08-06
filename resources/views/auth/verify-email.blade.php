@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Reset Password'])
+@extends('layouts.app', ['title' => 'Verifikasi Email'])
 
 @section('content')
 <div class="col-md-5">
