@@ -33,8 +33,8 @@ Route::get('login/github/callback', [LoginController::class, 'handleGithubCallba
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', function () {
-        return view('home')->name('home');
-    });
+        return view('home');
+    })->name('home');
 });
 
 Route::get('/register-retry', function(){
