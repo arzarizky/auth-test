@@ -75,6 +75,8 @@ class LoginController extends Controller
 
         $this->_registerOrLoginUser($user);
 
+        event(new Registered($user));
+
         // Return home after login
         return redirect()->route('home');
     }
