@@ -37,11 +37,11 @@ class LoginController extends Controller
     // Google callback
     public function handleGoogleCallback(\Request $request)
     {
-
         try {
             $user_google    = Socialite::driver('google')->user();
+            dd($user_google);
             $user           = User::where('email', $user_google->getEmail())->first();
-            dd($user);
+
 
             //jika user ada maka langsung di redirect ke halaman home
             //jika user tidak ada maka simpan ke database
