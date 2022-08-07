@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+// use Request
+
 
 class LoginController extends Controller
 {
@@ -70,7 +72,7 @@ class LoginController extends Controller
     //     }
     // }
 
-    public function handleGoogleCallback(\Request $request)
+    public function handleGoogleCallback()
     {
         try {
             $user_google    = Socialite::driver('google')->user();
