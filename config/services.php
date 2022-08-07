@@ -34,7 +34,7 @@ return [
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'https://arzarizky.space/login/google/callback',
+        'redirect' => 'https://www.arzarizky.space/login/google/callback',
     ],
 
     'github' => [
