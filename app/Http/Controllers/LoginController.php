@@ -52,7 +52,6 @@ class LoginController extends Controller
                 // \auth()->login($user, true);
                 return redirect()->route('home');
             }else{
-
                 $create = User::Create([
                     'provider_id'       => $user_google->getId(),
                     'email'             => $user_google->getEmail(),
@@ -62,8 +61,7 @@ class LoginController extends Controller
                     'email_verified_at' => now(),
                 ]);
 
-                $createSukses = Auth::login($create, true);
-                $createSukses->save();
+                Auth::login($create, true);
                 // auth()->login($create, true);
                 return redirect()->route('home');
             }
