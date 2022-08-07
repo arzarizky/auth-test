@@ -52,16 +52,18 @@ class LoginController extends Controller
                 // \auth()->login($user, true);
                 return redirect()->route('home');
             }else{
+
                 $create = User::Create([
                     'provider_id'       => $user_google->getId(),
                     'email'             => $user_google->getEmail(),
                     'name'              => $user_google->getName(),
                     'avatar'            => $user_google->getAvatar(),
                     'password'          => 0,
-                    'email_verified_at' => now()
+                    'email_verified_at' => now(),
                 ]);
 
-                Auth::login($create, true);
+                $createSukses = Auth::login($create, true);
+                $createSukses->save();
                 // auth()->login($create, true);
                 return redirect()->route('home');
             }
