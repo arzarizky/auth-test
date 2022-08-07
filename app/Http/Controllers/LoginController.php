@@ -112,9 +112,7 @@ class LoginController extends Controller
         // ser::where('username','John') -> first();
         // $verifikasiEmail = User::where('email_verified_at', null)->first();
         if (User::where('email_verified_at', null)) {
-            Fortify::verifyEmailView(function () {
-                return view('auth.verify-email');
-            });
+            return redirect()->route('verification.send');
         }
 
         // Return home after login
