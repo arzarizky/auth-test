@@ -45,7 +45,7 @@ class LoginController extends Controller
 
             //jika user ada maka langsung di redirect ke halaman home
             //jika user tidak ada maka simpan ke database
-            //$user_google menyimpan data google account seperti email, foto, dsb
+            //$user_google menyimpan data google account seperti email, foto, dsb (cek hasil dd)
 
             if($user != null){
                 Auth::login($user, true);
