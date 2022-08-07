@@ -39,7 +39,7 @@ class LoginController extends Controller
     {
         try {
             $user_google    = Socialite::driver('google')->user();
-            dd($user_google);
+            // dd($user_google);
             $user           = User::where('email', $user_google->getEmail())->first();
 
 
@@ -48,8 +48,8 @@ class LoginController extends Controller
             //$user_google menyimpan data google account seperti email, foto, dsb
 
             if($user != null){
-                // Auth::login($user, true);
-                \auth()->login($user, true);
+                Auth::login($user, true);
+                // \auth()->login($user, true);
                 return redirect()->route('home');
             }else{
                 $create = User::Create([
@@ -60,8 +60,8 @@ class LoginController extends Controller
                     'email_verified_at' => now()
                 ]);
 
-                // Auth::login($create, true);
-                auth()->login($create, true);
+                Auth::login($create, true);
+                // auth()->login($create, true);
                 return redirect()->route('home');
             }
 
