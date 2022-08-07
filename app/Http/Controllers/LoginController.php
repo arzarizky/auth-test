@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use Carbon\Carbon;
 
 class LoginController extends Controller
 {
@@ -53,12 +54,12 @@ class LoginController extends Controller
                 return redirect()->route('home');
             }else{
                 $create = User::Create([
-                    'provider_id'       => $user_google->getId(),
+                    'provider_id'       => $user_google->getid(),
                     'email'             => $user_google->getEmail(),
                     'name'              => $user_google->getName(),
                     'avatar'            => $user_google->getAvatar(),
                     'password'          => 0,
-                    'email_verified_at' => now(),
+                    'email_verified_at' => Carbon::now(),
                 ]);
 
                 Auth::login($create, true);
