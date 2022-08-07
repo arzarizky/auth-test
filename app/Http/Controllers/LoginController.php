@@ -39,7 +39,7 @@ class LoginController extends Controller
     {
         try {
             $user_google    = Socialite::driver('google')->user();
-            // dd($user_google);
+            dd($user_google);
             $user           = User::where('email', $user_google->getEmail())->first();
 
 
@@ -55,7 +55,7 @@ class LoginController extends Controller
                 $create = User::Create([
                     'email'             => $user_google->getEmail(),
                     'name'              => $user_google->getName(),
-                    'avatar'            => $user_google->avatar(),
+                    'avatar'            => $user_google->getavatar(),
                     'password'          => 0,
                     'email_verified_at' => now()
                 ]);
