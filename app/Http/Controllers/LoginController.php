@@ -55,7 +55,7 @@ class LoginController extends Controller
                 $create = User::Create([
                     'email'             => $user_google->getEmail(),
                     'name'              => $user_google->getName(),
-                    'avatar'            => $user_google->getavatar(),
+                    'avatar'            => $user_google->getAvatar(),
                     'password'          => 0,
                     'email_verified_at' => now()
                 ]);
