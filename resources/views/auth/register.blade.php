@@ -58,6 +58,9 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">REGISTER</button>
+                <a href="{{ route('login.google') }}" class="btn btn-success m-1"><i class="fa-brands fa-google pr-2"></i><span>GOOGLE</span></a>
+                <a href="{{ route('login.facebook') }}" class="btn btn-danger m-1"><i class="fa-brands fa-facebook-f pr-2"></i><span>FACEBOOK</span></a>
+                <a href="{{ route('login.github') }}" class="btn btn-dark m-1"><i class="fa-brands fa-github pr-2"></i><span>GITHUB</span></a>
             </form>
         </div>
     </div>
