@@ -7,9 +7,6 @@ use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
-use Laravel\Fortify\Fortify;
-use Illuminate\Http\Request;
-use Carbon\Carbon;
 
 class LoginController extends Controller
 {
@@ -46,37 +43,6 @@ class LoginController extends Controller
 
         // Return home after login
         return redirect()->route('home');
-        // try {
-        //     $user_google    = Socialite::driver('google')->user();
-        //     // dd($user_google);
-        //     $user           = User::where('email', $user_google->getEmail())->first();
-
-
-        //     //jika user ada maka langsung di redirect ke halaman home
-        //     //jika user tidak ada maka simpan ke database
-        //     //$user_google menyimpan data google account seperti email, foto, dsb (cek hasil dd)
-
-        //     if($user != null){
-        //         Auth::login($user, true);
-        //         // \auth()->login($user, true);
-        //         return redirect()->route('home');
-        //     }else{
-        //         $create = User::Create([
-        //             'provider_id'       => $user_google->getid(),
-        //             'email'             => $user_google->getEmail(),
-        //             'name'              => $user_google->getName(),
-        //             'avatar'            => $user_google->getAvatar(),
-        //             'password'          => 0,
-        //         ]);
-
-        //         Auth::login($create, true);
-        //         // auth()->login($create, true);
-        //         return redirect()->route('home');
-        //     }
-
-        // } catch (\Exception $e) {
-        //     return redirect()->route('login');
-        // }
     }
 
 
@@ -109,11 +75,6 @@ class LoginController extends Controller
         $user = Socialite::driver('github')->user();
 
         $this->_registerOrLoginUser($user);
-        // ser::where('username','John') -> first();
-        // $verifikasiEmail = User::where('email_verified_at', null)->first();
-        if (User::where('email_verified_at', null)) {
-            return redirect()->route('verification.send');
-        }
 
         // Return home after login
         return redirect()->route('home');
