@@ -59,7 +59,6 @@ class LoginController extends Controller
                     'name'              => $user_google->getName(),
                     'avatar'            => $user_google->getAvatar(),
                     'password'          => 0,
-                    'email_verified_at' => Carbon::now(),
                 ]);
 
                 Auth::login($create, true);
@@ -116,6 +115,7 @@ class LoginController extends Controller
             $user->email = $data->email;
             $user->provider_id = $data->id;
             $user->avatar = $data->avatar;
+            $user->email_verified_at = Carbon::now();
             $user->save();
         }
 
