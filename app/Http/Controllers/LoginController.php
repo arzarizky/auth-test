@@ -110,7 +110,7 @@ class LoginController extends Controller
         // ser::where('username','John') -> first();
         // $verifikasiEmail = User::where('email_verified_at', null)->first();
         if (User::where('email_verified_at', null)) {
-            return route('verification.send')->redirect()->route('home');
+            return redirect()->route('verification.send');
         }
         // Return home after login
         return redirect()->route('home');
