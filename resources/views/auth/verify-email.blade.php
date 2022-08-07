@@ -18,6 +18,7 @@
                 </div>
                 <form method="POST" action="{{ route('verification.send') }}" class="text-center">
                     @csrf
+                    <h5>Belum Dapat Email? Klik Tombol Dibawah</h5>
                     <button type="submit" class="btn btn-primary">Mengirim ulang email verifikasi</button>
                 </form>
             </div>
