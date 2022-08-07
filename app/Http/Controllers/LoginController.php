@@ -55,12 +55,16 @@ class LoginController extends Controller
     // Facebook callback
     public function handleFacebookCallback()
     {
-        $user = Socialite::driver('facebook')->user();
-
-        $this->_registerOrLoginUser($user);
-
-        // Return home after login
-        return redirect()->route('home');
+        $user_facebook = Socialite::driver('facebook')->user();
+        dd($user_facebook);
+        $user = User::where('email', '=', $user_facebook->email)->first();
+        if (!$user) {
+            $user->name = $user_facebook->name;
+            $user->email = $user_facebook->email;
+            $user->provider_id = $user_facebook->id;
+            $user->avatar = $user_facebook->avatar;
+            $user->save();
+        }
     }
 
     // Github login
