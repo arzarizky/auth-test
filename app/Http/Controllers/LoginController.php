@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use Laravel\Fortify\Fortify;
+use Illuminate\Http\Request;
 use Carbon\Carbon;
 
 class LoginController extends Controller
@@ -110,8 +112,11 @@ class LoginController extends Controller
         // ser::where('username','John') -> first();
         // $verifikasiEmail = User::where('email_verified_at', null)->first();
         if (User::where('email_verified_at', null)) {
-            return redirect()->route('verification.send');
+            Fortify::verifyEmailView(function () {
+                return view('auth.verify-email');
+            });
         }
+
         // Return home after login
         return redirect()->route('home');
     }
