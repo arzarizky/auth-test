@@ -12,7 +12,7 @@
                 @if (session('status') == 'verification-link-sent')
                     <div class="alert alert-success text-center">Tautan verifikasi email baru telah dikirim ke email Anda!</div>
                 @endif
-                <div class="text-center mb-5">
+                <div class="text-center mb-3">
                     <h3>Silahkan verifikasi e-mail address kamu makasiii :) </h3>
                     <p>Kamu harus memverifikasi alamat email kamu untuk mengakses halaman ini.</p>
                 </div>
